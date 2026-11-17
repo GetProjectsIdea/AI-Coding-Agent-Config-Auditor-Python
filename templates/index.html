@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card hero">
+  <h1>Is this repo safe to open with your AI coding agent?</h1>
+  <p>Upload a <strong>.zip</strong> of a project. The auditor reads AGENTS.md, CLAUDE.md, <code>.claude/settings.json</code> hooks,
+     MCP server configs and VS Code tasks, and flags anything that could make your agent run hidden code.</p>
+  {% if error %}<p class="error">{{ error }}</p>{% endif %}
+  <form method="post" enctype="multipart/form-data" class="upload">
+    <input type="file" name="repo_zip" accept=".zip" aria-label="Repository zip file">
+    <button type="submit">Scan zip</button>
+  </form>
+  <form method="post" class="examples">
+    <span>Or try a harmless example:</span>
+    <button name="example" value="risky-repo" class="ghost">risky-repo</button>
+    <button name="example" value="safe-repo" class="ghost">safe-repo</button>
+  </form>
+</section>
+<section class="card">
+  <h2>Safe-cloning checklist</h2>
+  <ul class="check">{% for item in checklist %}<li>{{ item }}</li>{% endfor %}</ul>
+</section>
+{% endblock %}

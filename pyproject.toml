@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-config-auditor"
+version = "1.0.0"
+description = "Read-only scanner that flags risky AI coding-agent files (AGENTS.md, CLAUDE.md, hooks, MCP configs) before you open a repo."
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Pardeep Patel" }]
+requires-python = ">=3.9"
+dependencies = []
+
+[project.optional-dependencies]
+web = ["Flask>=3.0"]
+dev = ["pytest>=8.0", "Flask>=3.0"]
+
+[project.scripts]
+agent-audit = "agent_auditor.cli:main"
+
+[project.urls]
+Homepage = "https://getprojects.org/ai-coding-agent-security-scanner-python/"
+Source = "https://github.com/GetProjectsIdea/AI-Coding-Agent-Config-Auditor-Python"
+
+[tool.setuptools]
+packages = ["agent_auditor"]

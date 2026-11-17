@@ -1,0 +1,13 @@
+AI Coding-Agent Config Auditor
+==============================
+Scanned folder : examples/safe-repo
+Agent files    : 2 (AGENTS.md, .cursor/mcp.json)
+Risk score     : 3/100
+Verdict        : LOOKS SAFE
+Findings       : Low 1, Info 1
+
+[LOW     ] MCP003 MCP server 'docs' downloads package '@modelcontextprotocol/server-filesystem@2026.1.0' at start-up
+           at  .cursor/mcp.json:3
+           saw npx -y @modelcontextprotocol/server-filesystem@2026.1.0 ./docs
+           fix Check the package on the official registry and pin an exact version.
+
